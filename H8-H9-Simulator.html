@@ -158,6 +158,12 @@
     box-shadow:inset 0 -2px 0 rgba(0,0,0,.15);}
   .card{background:color-mix(in srgb, var(--desk-bg) 60%, var(--desk-bg2));border:1px solid var(--rule);border-radius:10px;padding:20px 22px;}
   .card h2{font-size:14px;text-transform:uppercase;letter-spacing:.08em;margin:0 0 14px;color:var(--accent);}
+  .card-cassette{grid-column:span 2;column-count:2;column-gap:32px;column-rule:1px solid var(--rule);}
+  .card-cassette>h2,.card-cassette>.actions,.card-cassette>.status-line{column-span:all;}
+  .card-cassette>.actions:first-of-type{margin-top:4px;}
+  @media (max-width:700px){
+    .card-cassette{grid-column:span 1;column-count:1;column-rule:none;}
+  }
   dl.ops{margin:0;display:grid;grid-template-columns:auto 1fr;gap:7px 14px;font-size:13.5px;line-height:1.5;}
   dl.ops dt{font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap;}
   dl.ops dd{margin:0;color:var(--ink-soft);}
@@ -171,8 +177,10 @@
   button.util:hover{background:var(--rule);}
   button.util:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
   .status-line{font-size:12px;color:var(--ink-soft);margin-top:10px;font-variant-numeric:tabular-nums;}
-  footer.note{margin-top:30px;font-size:11.5px;color:var(--ink-soft);line-height:1.6;max-width:70ch;}
+  footer.note{margin-top:30px;font-size:11.5px;color:var(--ink-soft);line-height:1.6;}
   footer.note a{color:inherit;}
+  .footer-cols{display:grid;grid-template-columns:1fr 1fr;gap:10px 32px;}
+  @media (max-width:700px){ .footer-cols{grid-template-columns:1fr;} }
   code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;background:var(--rule);padding:1px 5px;border-radius:3px;font-size:.92em;}
 </style>
 
@@ -345,7 +353,7 @@
         </div>
       </div>
     </div>
-    <div class="card">
+    <div class="card card-cassette">
       <h2>Kassettenrekorder</h2>
       <p>LOAD und DUMP sind hier keine Attrappe: Es laufen die echten PAM8-ROM-Routinen (Sync-Byte-Suche, STX,
       Kopfdaten, CRC-16 – alles original), nur das Band selbst ist virtuell. DUMP schreibt ab der aktuellen
@@ -360,6 +368,14 @@
       Original-Heath-Programme teilen sich denselben Konsolentreiber, der zunächst ein kurzes
       Konfigurationsmenü zeigt (Prompt „<code>.</code>") – RETURN überspringt das und bringt den eigentlichen
       Programm-Prompt (z.&nbsp;B. „<code>B:</code>" bei BUG-8, „<code>*</code>" bei BASIC).</p>
+      <p style="font-size:11.5px;font-style:italic;">Lokaler Fundus (nur auf diesem Rechner): <code>/Users/roland/Downloads/tape-images</code>
+      enthält griffbereite Original-Bandabbilder für „Band aus Datei laden" – Systemsoftware
+      (<code>BUG8-*</code> Konsolen-Debugger, <code>TED8-*</code> Texteditor, <code>HASL8-*</code> Assembler,
+      <code>BHBASIC*</code>/<code>EXBASIC*</code> Benton-Harbor-/Extended-BASIC in mehreren Ausgaben), die
+      Spielebänder (<code>H8CHESS</code>, <code>H8CRAPS</code>, <code>H8DERBY</code>, <code>HAMRABI</code>,
+      <code>H8HANGM</code>, <code>H8HEXPAW</code>, <code>H8NIM</code>, <code>H8ORBIT</code>,
+      <code>MASTMIND</code>) sowie ein paar Frontpanel-Demos (<code>CLOCK</code>, <code>CHASELED</code>,
+      <code>H8DEMO</code>) – Details siehe <code>readme.txt</code> im selben Ordner.</p>
       <div class="actions">
         <button class="util" id="btn-cassette-rewind">⏮ Zurückspulen</button>
         <button class="util" id="btn-cassette-eject">⏏ Band leeren (neu)</button>
@@ -401,6 +417,8 @@
   </div>
 
   <footer class="note">
+   <div class="footer-cols">
+    <div>
     Läuft mit dem originalen PAM8-Monitor-ROM (Heath Teilenr. 444-13, J.G. Letwin, 1976) auf einem selbstgebauten
     8080A-Emulator. Port-Protokoll (360/361), Tastenmatrix und Zeichentabellen empirisch aus dem laufenden ROM sowie
     aus dem Original-Quelltext <code>XCON8 ROM.asm</code> (T. Gulczynski Re-Creation, 2009) verifiziert. Kassette
@@ -415,7 +433,8 @@
     Original-Zusammenbauhandbuch (595-2013-01, S. 47) sowie dem <code>h8.lay</code>-Tastenfeld-Layout aus MAME
     (Heath/Zenith-H8-Treiber von J. Tranter). Flag-Feinheiten des 8080A (insbesondere DAA/Auxiliary-Carry bei
     Subtraktion) sind vereinfacht.
-    <br><br>
+    </div>
+    <div>
     Das H9-Terminal ist eine funktionale Nachbildung nach der Original-Bedienungsanleitung (Heath Teilenr.
     595-2017-03), hier mit dem historischen 24-Zeilen-Hardware-Umbau: 24 statt der werkseitigen 12 Zeilen zu 80
     Zeichen (1920 statt 960 Zeichen, 5×7-Punktraster, nur Großbuchstaben), laut Nutzerangabe um 1980 in einer
@@ -438,6 +457,8 @@
     Nachbildung – siehe Karte „Kassettenrekorder“ oben, dort laufen LOAD/DUMP über die echten PAM8-ROM-Routinen.
     Short Form, Plot-Modus,
     die sieben wählbaren Baudraten, Off Line, Break und Xmit Page aus dem H9-Original sind nicht nachgebildet.
+    </div>
+   </div>
   </footer>
 </div>
 
