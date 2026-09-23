@@ -1,0 +1,12 @@
+// Original-PAM-8-Monitor-ROM (Heath 444-13, J.G. Letwin 1976), unveraendert.
+// Empirisch aus dem laufenden ROM sowie aus dem Original-Quelltext
+// "XCON8 ROM.asm" (T. Gulczynski Re-Creation, basierend auf J.G. Letwins
+// PAM-8 von 1976) abgeleitet: Speicher-Layout, Port-360/361-Protokoll,
+// Zeichentabellen und die vollstaendige Tastenmatrix (Subroutine RCK).
+// Verifiziert (11.09.2026): byte-identisch (SHA-256
+// ddd0748c3f842f5d6d2203a8afd49110e6f8d23e13fbdcfd84c74bf8f6936e13) mit
+// 2708_444-13_pam8.rom aus dem MAME-H8-ROM-Set (h8.zip).
+import { decodeBase64 } from "./base64.js";
+
+const PAM8_ROM_B64 = "EfkDIQogwzsAzVoAFgDDgQDNWgAaw6QBwyUgNDQ0MTPDKCBASkdMQMMrIPWvw2MCwy4gPtDDnQHDMSAadyscwjsAFgQhABx3GX41vsJHACv55SHSAOU+TtP549XF9eshCgA55dURCSAaL+YwyCECADkiHSDJCg/cHyDx8cHR4fvJKhsgIyIbICEIIH5H5kAjfkrCnwAjNcKcADYJXhlLsdPwftPxLht+5h/McQMBCSAK5iDCegALChfaywA+Cs0qA14jVhsa/nbK0gDb8P4uwnUAIQggfua9dyM28PsqHSD5zV4C+yHlAOUBByAK5gEvMgYgzbADKhQg/grSBQFfCg/aKQF71gTa0gBf5SEdARYAGV4Z4xEFIArmAgrJdWFjdZDaN0RCME4cD3vaNwE3zTYDIyIUIMn1zScDp8rSACPxwzIDPgICC68CzbADPf4G0tIABxLJ7gECySPKMwEaxgIS/gzYrxLJK8ozARrWAhLQPgoSya8CCwIhFSDDMgMG2xEG03xlaCICIM0CIGxnwzMBwzMA8zoJIO4Q0/AyCSDhw3oA9hDT8BLmIMLkAMMiICGkAiIZIAEA/s21Am/rDQl8xfXmf7U+AsKFAs3VAkRPPgrVzSoD0XEjcM3VAm8iACDN2QJ3IhQgIxt6s8LiAc16AvHBB9pbAsO6ASGkAiIZID4B0/k+FiYgzRQDJcIKAj4CzRQDbCIXICEBgc0PAyoAIOsqFCAjfZNvfJpnzQ8D5T4K1c0qA34jZm/NDwPh0c0PA37NFAMiFCAjG3qzwkQCKhcgzQ8DzQ8Dr9P5PmT1PoDj1eshCSCuXncuG3qGvsJwAi4Jc9Hhyc3VAioXIHy1yD4BMhQgR81bAuZ4D9jcXgLNqgLb8P4vyo0COhwgH8OQAq/T+cPSANvw/m/b+cAqGSDpFgBias3ZAhT+Fsq5Av4CwrUCPgq60rUCIhcgzdUCVF/N2QJnPjTT+c2qAuYCyt0C2/jFBgjlKhcgB099h298F2cXqQ/SBAN87oBnfe4Fb3kFwu4CIhcg4cHJfM0UA331zaoC5gHKFQM+EdP58dP4w+cCOgUgXxYAKh0gGcnNNgMrFgPUsAP+CNLSAF9+BwcH5vizdxXCOAM+D8NgAtUWAw4DFxcX9eYHxu5fGqjmf6h3I3gHR/ENwlcD0ck+AqDALgZ+B3dHI37mAioUIMqXA80nA+Uh4gMZfiNmb+O0fiNmb/XrIQsges1SA3vNUgPxGspSAzb/4SISIMnlxQ4UIRYg2/BHPgrNKwB4vsLIAw3CtwN37v4P0tYDDw8PD9K3A0c+As1gAnjmD8HhyaSYkJyGjcKMko+YzgFzSGAyJARxACAAAQAAAAAKyQ==";
+export const PAM8_ROM = decodeBase64(PAM8_ROM_B64);
