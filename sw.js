@@ -43,8 +43,11 @@ self.addEventListener('activate', (e)=>{
 self.addEventListener('fetch', (e)=>{
   const req = e.request;
   if(req.method!=='GET' || new URL(req.url).origin!==location.origin) return;
+  // cache:'no-cache' = beim Server nachfragen (If-Modified-Since/ETag), statt eine
+  // noch "frische" Kopie aus dem HTTP-Cache des Browsers zu nehmen - GitHub Pages
+  // erlaubt dem Browser sonst 10 Minuten lang die alte Fassung (max-age=600).
   e.respondWith(
-    fetch(req)
+    fetch(req, {cache:'no-cache'})
       .then(res=>{
         if(res.ok){ const copy=res.clone(); caches.open(CACHE).then(c=> c.put(req, copy)); }
         return res;
