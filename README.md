@@ -5,6 +5,8 @@ Eine funktionsgetreue Nachbildung des Heathkit H8 (1977) im Browser: 8080A-Emula
 12 Zeilen zu 80 Zeichen) und die H8-5 Serial/Kassetten-Interface-Karte. Eine abhängigkeitsfreie
 Web-App ohne Build-Schritt – installierbar und nach dem ersten Aufruf auch offline nutzbar (PWA).
 
+**▶ Direkt im Browser starten: <https://rolandkirsche.github.io/H8-H9-Simulator/>**
+
 ![H8 und H9 im Simulator: BASIC-Ausgabe auf dem H9-Terminal](docs/screenshot.png)
 
 ## Starten
