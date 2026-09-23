@@ -50,7 +50,9 @@ h1{font-size:clamp(26px,4vw,38px);margin:0 0 10px;font-weight:800;letter-spacing
   display:flex;flex-direction:column;min-height:0;
 }
 
-.main-row{display:flex;gap:20px;align-items:flex-start;}
+/* gap = seitliches Panel-Padding (24px): so ist das Tastenfeld per margin-inline:auto exakt
+   mittig zwischen Anzeige und rechtem Gehaeuserand. */
+.main-row{display:flex;gap:24px;align-items:flex-start;}
 .display-cluster{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;gap:7px;max-width:360px;}
 .lamp-strip{display:flex;gap:16px;padding-left:2px;}
 .lamp{display:flex;align-items:center;gap:4px;}
@@ -84,7 +86,7 @@ h1{font-size:clamp(26px,4vw,38px);margin:0 0 10px;font-weight:800;letter-spacing
 .display-labels .lbl-address{flex:6;text-align:center;}
 .display-labels .lbl-data{flex:3;text-align:center;}
 
-.keypad{flex:0 0 auto;width:216px;display:grid;grid-template-columns:repeat(4,1fr);gap:5px;}
+.keypad{flex:0 0 auto;width:216px;margin-inline:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:5px;}
 .key{
   position:relative;aspect-ratio:1;border-radius:4px;border:none;cursor:pointer;
   background:linear-gradient(180deg,var(--key-hi),var(--key) 40%, var(--key-dark));
